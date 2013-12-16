@@ -1,0 +1,18 @@
+body { background: #444 url('img/body-bg.png') repeat; padding-top: 50px }
+
+/* custom panel overrides */
+.app-window > .panel-body { padding: 0 }
+
+/* some enhancements for non-mobile devices */
+@media (min-width: 992px){
+    .app-window aside { width: 20%; position: fixed; max-width: 264px }
+    .col-sm-9 { float: right }
+}
+
+/* content */
+dt strong { font-size: 1.2em }
+dt span { font-weight: 300; font-style: italic }
+
+
+/* fake content height */
+.app-window > .panel-body { min-height: 1000px }

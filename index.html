@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap/Underscore Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="rainbow/theme-github.css" rel="stylesheet" media="screen">
+    <link href="screen.css" rel="stylesheet" media="screen">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+    <body>
+
+        <!-- Standard page wrapping -->
+        <div class="container">
+
+            <!-- Example of a basic bootstrap panel -->
+            <article class="app-window panel panel-primary">
+                <header class="panel-heading">Application v1.0</header>
+
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Link 4</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="panel-body">
+                    <aside class="col-sm-3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Navigation</div>
+                            <div class="panel-body">
+                                <ul class="nav" data-spy="scroll">
+                                    <li><a href="#bootstrap">Bootstrap</a></li>
+                                    <li><a href="#underscore">Underscore</a>
+                                        <ul>
+                                            <li><a href="#uniq">uniq</a></li>
+                                            <li><a href="#throttle">throttle</a></li>
+                                            <li><a href="#debounce">debounce</a></li>
+                                            <li><a href="#extend">extend</a></li>
+                                            <li><a href="#clone">clone</a></li>
+                                            <li><a href="#templates">templating</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#alternates">Lazy.js/Lo-Dash</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                    <section class="col-sm-9">
+                        <div data-target="#bootstrap">
+
+                            <h3>Bootstrap</h3>
+
+                            <p>Bootstrap is a layout and web UI framework. Focusing on progressive enhancement through media queries, it sets the stage for developers to follow suit and
+                                build applications that are suitable for every screen size.</p>
+                            <p>Nearly all css/javascript components are optional and may be removed in custom builds, or modified/extended (most easily through LESS).</p>
+                            <p>It's extremely easy to <a href="http://bootsnipp.com/resources" class="pop" data-title="Plugins" data-content="There are thousands of bootstrap plugins designed for the bootstrap markup, but naturally any jQuery plugin works too." target="_blank">extend</a>, <a href="http://bootsnipp.com/"class="pop" data-title="Patterns" data-content="There are thousands of custom design patterns available, but it's also easy to override and make your own." target="_blank">override</a>, and <a href="http://bootswatch.com/"class="pop" data-title="Plugins" data-content="Effortlessly override default design elements, or better yet, run custom LESS builds of bootstrap" target="_blank">theme</a></p>
+
+                            <p>It provides basic markup for:</p>
+
+                            <ul>
+                                <li>Layout - Containers, grids, rows with push/pull offsets</li>
+                                <li>Forms, tables, content</li>
+                                <li>Labels, buttons, navigation, tabs, images, icons, alerts, wells</li>
+                                <li>Modal dialogues, image carousels, accordian patterns</li>
+                                <li>... and much more</li>
+                            </ul>
+
+                            <p>Bootstrap uses <a href="https://github.com/necolas/normalize.css/" target="_blank">Normalize</a> as its base CSS reset file.</p>
+
+                        </div>
+                        <div data-target="#underscore">
+                            <h3>Underscore</h3>
+
+                            <p><a href="http://underscorejs.org" target="_blank">UnderscoreJS</a> is a library of 80+ javascript utility methods, primarily adding
+                            array, function, and object helpers to fill in javascripts gaps.</p>
+
+                            <p>As the name implies, the underscore is the global variable used to access the utility. The following
+                            example iterates over each element in a collection:</p>
+
+                            <p><pre><code data-language="javascript">_.each([1, 2, 3], alert);</code></pre></p>
+
+                            <p>I'll highlight a few of my personal favorites, but I highly recommend you review the <a href="http://underscorejs.org" target="_blank">official documentation</a> for
+                            a single page list of all available methods.</p>
+
+                            <dl>
+                                <dt id="uniq"><strong>uniq</strong><span>&nbsp;&mdash;&nbsp;extracts an array of unique values:</span></dt>
+                                <dd>
+<p><pre><code data-language="javascript">_.uniq([1, 2, 1, 3, 1, 4]);
+// => [1, 2, 3, 4]
+</code></pre></p>
+                                </dd>
+                                <dt id="throttle"><strong>throttle</strong><span>&nbsp;&mdash;&nbsp;limits how often a function is called:</span></dt>
+                                <dd>
+                                    <p><pre><code data-language="javascript">function viewportReize(){
+   // js logic for window resizing
+}
+var thrViewportResize = _.throttle(viewportReize, 50);
+$(window).on('resize',thrViewportResize);</code></pre></p>
+                                </dd>
+                                <dt id="debounce"><strong>debounce</strong><span>&nbsp;&mdash;&nbsp;execute after event stops</span></dt>
+                                <dd>
+                                    <p><pre><code data-language="javascript">function repaintPage(){
+    // js logic for window resizing
+}
+var thrRepaintPage = _.debounce(repaintPage, 10);
+$(window).on('resize',thrRepaintPage);</code></pre></p>
+                                </dd>
+                                <dt id="extend"><strong>extend</strong><span>&nbsp;&mdash;&nbsp;combines objects</span></dt>
+                                <dd>
+                                    <p><pre><code data-language="javascript">_.extend({name: 'moe'}, {age: 50});
+// => {name: 'moe', age: 50}</code></pre></p>
+                                </dd>
+                                <dt id="clone"><strong>clone</strong><span>&nbsp;&mdash;&nbsp;shallow-clone an object</span></dt>
+                                <dd>
+                                    <p><pre><code data-language="javascript">// Normally, "b" is a reference to "a"
+var a = { name: 'Mike' }
+var b = a;
+b.name = 'Bob';
+console.log(a.name); // Bob
+
+// Cloning splits into two objects
+var a = { name: 'Mike' }
+var b = _.clone(a);
+b.name = 'Bob';
+console.log(a.name); // Mike</code></pre></p>
+                                </dd>
+                            </dl>
+
+                            <p>Underscore also provides a number of type-validation functions like <code>isElement</code>,
+                                <code>isArray</code>, <code>isObject</code>, <code>isNumber</code>, <code>isDate</code> and more!</p>
+
+
+                            <h4 id="templates">Templating</h4>
+
+                            <p>Underscore comes with a very basic templating system -  similar to
+                            <a href="http://handlebarsjs.com/" target="_blank">handlebars</a>, <a href="http://mustache.github.io/" target="_blank">mustache</a>, etc.</p>
+
+
+                            <p>First, create a basic html template, wrapped inside of a script element so it's not rendered:</p>
+
+                            <p><pre><code data-language="html"><script type="text/html" id="snippet-list">
+    <header>
+        <%= panel.title %>
+        <a href="#" class="icon-remove" title="Close navigation"></a>
+    </header>
+    <ul>
+        <% _.each(panel.data,function(paste,key,list){ %>
+        <li class="pste-lnk">
+            <a href="<%= paste.paste_url %>">
+                <span class="pste-name"><%= paste.name %></span>
+                <span class="pste-meta"><%= paste.mode %> by <%= paste.user %></span>
+            </a>
+        </li>
+        <% }); %>
+    </ul>
+</script></code></pre></p>
+
+                            <p>Next, pass the above html to the <code>_.template</code> method, along with an object holding
+                            the data for the placeholders and assign the output to a DOM element:</p>
+
+                            <p><pre><code data-language="javascript">var tmplSrc = $('#snippet-list').html();
+$('.navlist').html( _.template( tmplSrc, { /* an object */ } ) );</code></pre></p>
+
+
+                            <h3 id="alternates">Lazy/Lo-Dash</h3>
+
+                            <p>Underscore is required by <a href="http://backbonejs.org/">BackboneJS</a>, so users of
+                                Backbone have no choice but to use Underscore. For the rest of us, there are several
+                                competing projects that have consistently shown much better performance.
+                            </p>
+
+
+
+                            <p><a href="http://danieltao.com/lazy.js/" target="_blank">Lazy.js</a> is the fastest by a long shot
+                            in half or more tests, primarily by reducing the need for building and iterating arrays when
+                            not needed.</p>
+
+                            <p><a href="http://lodash.com/" target="_blank">Lo-Dash</a> starts out as close-to or faster than Lazy
+                            but Lazy gains the edge when multiple chained methods are strung together.</p>
+
+                            <p>Both are usually significantly faster than underscore, but both have fewer methods
+                            and no templating system.</p>
+
+                            <p>Give all three a performance check with your browser: <a href="danieltao.com/lazy.js/#benchmark-results">lazy.js benchmarks</a></p>
+
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </div>
+        <script src="jquery/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="underscore/underscore.js"></script>
+        <script src="rainbow/rainbow-custom.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
