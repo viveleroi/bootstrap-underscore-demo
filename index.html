@@ -59,7 +59,7 @@
                             <div class="panel-body">
                                 <ul class="nav" data-spy="scroll">
                                     <li><a href="#bootstrap">Bootstrap</a></li>
-                                    <li><a href="#underscore">Underscore</a>
+                                    <li><a href="#underscore">Underscore / Lo-Dash</a>
                                         <ul>
                                             <li><a href="#uniq">uniq</a></li>
                                             <li><a href="#throttle">throttle</a></li>
@@ -82,7 +82,7 @@
                             <p>Bootstrap is a layout and web UI framework. Focusing on progressive enhancement through media queries, it sets the stage for developers to follow suit and
                                 build applications that are suitable for every screen size.</p>
                             <p>Nearly all css/javascript components are optional and may be removed in custom builds, or modified/extended (most easily through LESS).</p>
-                            <p>It's extremely easy to <a href="http://bootsnipp.com/resources" class="pop" data-title="Plugins" data-content="There are thousands of bootstrap plugins designed for the bootstrap markup, but naturally any jQuery plugin works too." target="_blank">extend</a>, <a href="http://bootsnipp.com/"class="pop" data-title="Patterns" data-content="There are thousands of custom design patterns available, but it's also easy to override and make your own." target="_blank">override</a>, and <a href="http://bootswatch.com/"class="pop" data-title="Plugins" data-content="Effortlessly override default design elements, or better yet, run custom LESS builds of bootstrap" target="_blank">theme</a></p>
+                            <p>It's extremely easy to <a href="http://bootsnipp.com/resources" class="pop" data-title="Plugins" data-content="There are thousands of bootstrap plugins designed for the bootstrap markup, but naturally any jQuery plugin works too." target="_blank">extend</a>, <a href="http://bootsnipp.com/"class="pop" data-title="Patterns" data-content="There are thousands of custom design patterns available, but it's also easy to override and make your own." target="_blank">override</a>, and <a href="http://bootswatch.com/"class="pop" data-title="Themes" data-content="Effortlessly override default design elements, or better yet, run custom LESS builds of bootstrap" target="_blank">theme</a></p>
 
                             <p>It provides basic markup for:</p>
 
@@ -98,18 +98,19 @@
 
                         </div>
                         <div data-target="#underscore">
-                            <h3>Underscore</h3>
+                            <h3>Underscore / Lo-Dash</h3>
 
-                            <p><a href="http://underscorejs.org" target="_blank">UnderscoreJS</a> is a library of 80+ javascript utility methods, primarily adding
-                            array, function, and object helpers to fill in javascripts gaps.</p>
+                            <p><a href="http://underscorejs.org" target="_blank">UnderscoreJS</a> and <a href="http://lodash.com/" target="_blank">Lo-Dash</a> are competing libraries of extremely useful javascript utility methods, primarily adding
+                            array, function, and object helpers to fill in the gaps.</p>
 
-                            <p>As the name implies, the underscore is the global variable used to access the utility. The following
+                            <p>Underscore is fairly popular and is required for BackboneJS but several in the industry have noted some problems with its interals. Lo-Dash was created to provide the same utility functions (matching the API of underscore), without any of the side effects and much better performance. <a href="http://stackoverflow.com/a/13898916/143269">Read more</a></p>
+
+                            <p>Both libraries use the underscore as the class variable. The following
                             example iterates over each element in a collection:</p>
 
                             <p><pre><code data-language="javascript">_.each([1, 2, 3], alert);</code></pre></p>
 
-                            <p>I'll highlight a few of my personal favorites, but I highly recommend you review the <a href="http://underscorejs.org" target="_blank">official documentation</a> for
-                            a single page list of all available methods.</p>
+                            <p>I'll highlight a few of my personal favorites, but I highly recommend you review the official docs (<a href="http://underscorejs.org" target="_blank">underscore</a>, <a href="http://lodash.com/docs">lo-dash</a>).</p>
 
                             <dl>
                                 <dt id="uniq"><strong>uniq</strong><span>&nbsp;&mdash;&nbsp;extracts an array of unique values:</span></dt>
@@ -190,27 +191,6 @@ console.log(a.name); // Mike</code></pre></p>
                             <p><pre><code data-language="javascript">var tmplSrc = $('#snippet-list').html();
 $('.navlist').html( _.template( tmplSrc, { /* an object */ } ) );</code></pre></p>
 
-
-                            <h3 id="alternates">Lazy/Lo-Dash</h3>
-
-                            <p>Underscore is required by <a href="http://backbonejs.org/">BackboneJS</a>, so users of
-                                Backbone have no choice but to use Underscore. For the rest of us, there are several
-                                competing projects that have consistently shown much better performance.
-                            </p>
-
-
-
-                            <p><a href="http://danieltao.com/lazy.js/" target="_blank">Lazy.js</a> is the fastest by a long shot
-                            in half or more tests, primarily by reducing the need for building and iterating arrays when
-                            not needed.</p>
-
-                            <p><a href="http://lodash.com/" target="_blank">Lo-Dash</a> starts out as close-to or faster than Lazy
-                            but Lazy gains the edge when multiple chained methods are strung together.</p>
-
-                            <p>Both are usually significantly faster than underscore, but both have fewer methods
-                            and no templating system.</p>
-
-                            <p>Give all three a performance check with your browser: <a href="danieltao.com/lazy.js/#benchmark-results">lazy.js benchmarks</a></p>
 
                         </div>
                     </section>
